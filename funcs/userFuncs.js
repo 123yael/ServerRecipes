@@ -1,0 +1,24 @@
+
+const model = require('../models/userModel')
+
+
+const funcUser = {
+    // פונקציה שמחזירה את כל המשתמשים
+    getAllUsers: async () => {
+        const users = await model.find({})
+        return users;
+    },
+    // פונקציה שמחזירה משתמש על פי name and pass
+    getUserByNameAndPass: async (n, p) => {
+        let fn = n.split(" ")[0]
+        const user = await model.find({firstName: fn, pass: p})
+        return user[0];
+    },
+    // פונקצית הוספת משתמש
+    addUser: async (u) => {
+        const user = await model.insertMany(u)
+        return user;
+    },
+}
+
+module.exports = funcUser
