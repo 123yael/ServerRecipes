@@ -20,7 +20,7 @@ const funcRecipe = {
     },
     // פונקציה להסרת מתכון מהמערכת המתכונים על פי שם מתכון ושם משתמש
     dellRecipeByNameRNameU: async (nameR, nameU) => {
-        if(nameU === "yael malkin")
+        if(nameU ===  process.env.ManagerFirstName + " " + process.env.ManagerLastName)
             return await model.deleteOne({name: nameR})
         else
             return await model.deleteOne({name: nameR, userName: nameU})

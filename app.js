@@ -14,6 +14,9 @@ app.use(myCors())
 let mybodyParser = require('body-parser')
 app.use(mybodyParser())
 
+// .env טעינת המודול המאפשר שימוש בהצפנת קובץ
+require('dotenv').config();
+
 // טעינת קונטרולר המשתמשים
 let userController = require('./controllers/userController')
 app.use('/users', userController)
